@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 
 
-// tüm hepsinin byteını alıp öyle yapıyo out of memorye sebep verebilir bufferlar halinde oku ve yaz
+// tüm hepsinin byteını alıp öyle yapıyor, out of memorye sebep verebilir, bufferlar halinde oku ve yaz
 
 
 namespace BekoS.IO.FileBinding;
@@ -50,7 +50,7 @@ public class Binder
         if (Files.Count <= 1)
             throw new FileNotFoundException("At least 2 files must be binded!");
 
-        if (Files.All(f => f.IsExecutable == false))
+        if (Files.All(f => !f.IsExecutable))
             throw new FileNotFoundException("At 1 file must be executed!");
 
         ArgumentNullException.ThrowIfNull(outputFile);

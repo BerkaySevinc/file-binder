@@ -12,11 +12,12 @@ using System.Web;
 using System.Windows.Forms;
 using BekoS.IO.FileBinding;
 
+
 namespace FileBinder
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
-        public Form1()
+        public Main()
         {
             InitializeComponent();
         }
@@ -56,25 +57,33 @@ namespace FileBinder
 
         private void btnCompile_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog sfd = new SaveFileDialog
+            if (binder.Files.Count <= 1)
+            {
+                MessageBox.Show("At least 2 files must be binded!", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (binder.Files.All(f => !f.IsExecutable))
+            {
+                MessageBox.Show("At 1 file must be executed!", string.Empty, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using var sfd = new SaveFileDialog
             {
                 FileName = "Output",
                 Filter = "Exe File|*.exe"
-            })
-            {
-                DialogResult result = sfd.ShowDialog();
+            };
 
-                if (!(result is DialogResult.OK) || string.IsNullOrWhiteSpace(sfd.FileName)) return;
+            DialogResult result = sfd.ShowDialog();
 
-                CompilerResults compilerResults = binder.Compile(sfd.FileName, iconPath);
-                var compilerErrors = compilerResults.Errors.Cast<CompilerError>();
+            if (!(result is DialogResult.OK) || string.IsNullOrWhiteSpace(sfd.FileName)) return;
 
-                if (compilerErrors.Any())
-                {
-                    var errorMessage = "Errors:\n\n" + string.Join("\n\n", compilerErrors.Select(ce => ce.ErrorText));
-                    MessageBox.Show(errorMessage);
-                }
-            }
+            CompilerResults compilerResults = binder.Compile(sfd.FileName, iconPath);
+            var compilerErrors = compilerResults.Errors.Cast<CompilerError>();
+
+            if (compilerErrors.Any())
+                MessageBox.Show($"Errors:\n\n {string.Join("\n\n", compilerErrors.Select(ce => ce.ErrorText))}");
         }
 
         private string? iconPath;

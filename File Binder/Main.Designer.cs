@@ -1,6 +1,6 @@
 ﻿namespace FileBinder
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         ///Gerekli tasarımcı değişkeni.
