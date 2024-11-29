@@ -33,18 +33,17 @@ namespace FileBinder
 
         private void btnAddFile_Click(object sender, EventArgs e)
         {
-            using (var ofd = new OpenFileDialog())
-            {
-                DialogResult result = ofd.ShowDialog();
+            using var ofd = new OpenFileDialog();
 
-                if (result is not DialogResult.OK || string.IsNullOrWhiteSpace(ofd.FileName)) return;
+            DialogResult result = ofd.ShowDialog();
 
-                var file = new FileInfo(ofd.FileName);
+            if (result is not DialogResult.OK || string.IsNullOrWhiteSpace(ofd.FileName)) return;
 
-                binder.AddFile(file.FullName, file.Extension == ".exe");
+            var file = new FileInfo(ofd.FileName);
 
-                bs.ResetBindings(false);
-            }
+            binder.AddFile(file.FullName, file.Extension == ".exe");
+
+            bs.ResetBindings(false);
         }
 
         private void dgvFiles_CurrentCellDirtyStateChanged(object sender, EventArgs e)
@@ -89,16 +88,15 @@ namespace FileBinder
         private string? iconPath;
         private void btnSelectIcon_Click(object sender, EventArgs e)
         {
-            using (var ofd = new OpenFileDialog())
-            {
-                ofd.Filter = "Icon Files|*.ico";
-                DialogResult result = ofd.ShowDialog();
+            using var ofd = new OpenFileDialog();
 
-                if (!(result is DialogResult.OK) || string.IsNullOrWhiteSpace(ofd.FileName)) return;
+            ofd.Filter = "Icon Files|*.ico";
+            DialogResult result = ofd.ShowDialog();
 
-                pbxIcon.Image = Image.FromFile(ofd.FileName);
-                iconPath = ofd.FileName;
-            }
+            if (!(result is DialogResult.OK) || string.IsNullOrWhiteSpace(ofd.FileName)) return;
+
+            pbxIcon.Image = Image.FromFile(ofd.FileName);
+            iconPath = ofd.FileName;
         }
     }
 }
