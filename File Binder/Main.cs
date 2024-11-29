@@ -22,8 +22,8 @@ namespace FileBinder
             InitializeComponent();
         }
 
-        private readonly Binder binder = new Binder();
-        private readonly BindingSource bs = new BindingSource();
+        private readonly Binder binder = new();
+        private readonly BindingSource bs = new();
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -37,7 +37,7 @@ namespace FileBinder
             {
                 DialogResult result = ofd.ShowDialog();
 
-                if (!(result is DialogResult.OK) || string.IsNullOrWhiteSpace(ofd.FileName)) return;
+                if (result is not DialogResult.OK || string.IsNullOrWhiteSpace(ofd.FileName)) return;
 
                 var file = new FileInfo(ofd.FileName);
 
