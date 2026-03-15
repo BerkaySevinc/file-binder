@@ -98,5 +98,11 @@ namespace FileBinder
             pbxIcon.Image = Image.FromFile(ofd.FileName);
             iconPath = ofd.FileName;
         }
+
+
+        private void dgvFiles_SelectionChanged(object sender, EventArgs e)
+        {
+            dgvFiles.ClearSelection();
+        }
     }
 }

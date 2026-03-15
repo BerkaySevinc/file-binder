@@ -28,82 +28,94 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAddFile = new System.Windows.Forms.Button();
-            this.btnCompile = new System.Windows.Forms.Button();
-            this.dgvFiles = new System.Windows.Forms.DataGridView();
-            this.btnSelectIcon = new System.Windows.Forms.Button();
-            this.pbxIcon = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFiles)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).BeginInit();
-            this.SuspendLayout();
+            btnAddFile = new Button();
+            btnCompile = new Button();
+            dgvFiles = new DataGridView();
+            btnSelectIcon = new Button();
+            pbxIcon = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)dgvFiles).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbxIcon).BeginInit();
+            SuspendLayout();
             // 
             // btnAddFile
             // 
-            this.btnAddFile.Location = new System.Drawing.Point(680, 76);
-            this.btnAddFile.Name = "btnAddFile";
-            this.btnAddFile.Size = new System.Drawing.Size(207, 59);
-            this.btnAddFile.TabIndex = 0;
-            this.btnAddFile.Text = "Add File";
-            this.btnAddFile.UseVisualStyleBackColor = true;
-            this.btnAddFile.Click += new System.EventHandler(this.btnAddFile_Click);
+            btnAddFile.Location = new Point(793, 88);
+            btnAddFile.Margin = new Padding(4, 3, 4, 3);
+            btnAddFile.Name = "btnAddFile";
+            btnAddFile.Size = new Size(241, 68);
+            btnAddFile.TabIndex = 0;
+            btnAddFile.Text = "Add File";
+            btnAddFile.UseVisualStyleBackColor = true;
+            btnAddFile.Click += btnAddFile_Click;
             // 
             // btnCompile
             // 
-            this.btnCompile.Location = new System.Drawing.Point(680, 360);
-            this.btnCompile.Name = "btnCompile";
-            this.btnCompile.Size = new System.Drawing.Size(207, 59);
-            this.btnCompile.TabIndex = 1;
-            this.btnCompile.Text = "Compile";
-            this.btnCompile.UseVisualStyleBackColor = true;
-            this.btnCompile.Click += new System.EventHandler(this.btnCompile_Click);
+            btnCompile.Location = new Point(793, 415);
+            btnCompile.Margin = new Padding(4, 3, 4, 3);
+            btnCompile.Name = "btnCompile";
+            btnCompile.Size = new Size(241, 68);
+            btnCompile.TabIndex = 1;
+            btnCompile.Text = "Compile";
+            btnCompile.UseVisualStyleBackColor = true;
+            btnCompile.Click += btnCompile_Click;
             // 
             // dgvFiles
             // 
-            this.dgvFiles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvFiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFiles.Location = new System.Drawing.Point(43, 46);
-            this.dgvFiles.Name = "dgvFiles";
-            this.dgvFiles.Size = new System.Drawing.Size(592, 395);
-            this.dgvFiles.TabIndex = 2;
-            this.dgvFiles.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvFiles_CurrentCellDirtyStateChanged);
+            dgvFiles.AllowUserToAddRows = false;
+            dgvFiles.AllowUserToDeleteRows = false;
+            dgvFiles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvFiles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvFiles.Location = new Point(50, 53);
+            dgvFiles.Margin = new Padding(4, 3, 4, 3);
+            dgvFiles.MultiSelect = false;
+            dgvFiles.Name = "dgvFiles";
+            dgvFiles.RowTemplate.Height = 40;
+            dgvFiles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvFiles.Size = new Size(691, 456);
+            dgvFiles.TabIndex = 2;
+            dgvFiles.CurrentCellDirtyStateChanged += dgvFiles_CurrentCellDirtyStateChanged;
+            dgvFiles.SelectionChanged += dgvFiles_SelectionChanged;
             // 
             // btnSelectIcon
             // 
-            this.btnSelectIcon.Location = new System.Drawing.Point(680, 223);
-            this.btnSelectIcon.Name = "btnSelectIcon";
-            this.btnSelectIcon.Size = new System.Drawing.Size(146, 48);
-            this.btnSelectIcon.TabIndex = 5;
-            this.btnSelectIcon.Text = "Select Icon";
-            this.btnSelectIcon.UseVisualStyleBackColor = true;
-            this.btnSelectIcon.Click += new System.EventHandler(this.btnSelectIcon_Click);
+            btnSelectIcon.Location = new Point(793, 257);
+            btnSelectIcon.Margin = new Padding(4, 3, 4, 3);
+            btnSelectIcon.Name = "btnSelectIcon";
+            btnSelectIcon.Size = new Size(170, 55);
+            btnSelectIcon.TabIndex = 5;
+            btnSelectIcon.Text = "Select Icon";
+            btnSelectIcon.UseVisualStyleBackColor = true;
+            btnSelectIcon.Click += btnSelectIcon_Click;
             // 
             // pbxIcon
             // 
-            this.pbxIcon.Location = new System.Drawing.Point(832, 220);
-            this.pbxIcon.Name = "pbxIcon";
-            this.pbxIcon.Size = new System.Drawing.Size(55, 55);
-            this.pbxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxIcon.TabIndex = 6;
-            this.pbxIcon.TabStop = false;
+            pbxIcon.Location = new Point(971, 254);
+            pbxIcon.Margin = new Padding(4, 3, 4, 3);
+            pbxIcon.Name = "pbxIcon";
+            pbxIcon.Size = new Size(64, 63);
+            pbxIcon.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbxIcon.TabIndex = 6;
+            pbxIcon.TabStop = false;
             // 
-            // Form1
+            // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(20)))), ((int)(((byte)(21)))));
-            this.ClientSize = new System.Drawing.Size(929, 486);
-            this.Controls.Add(this.pbxIcon);
-            this.Controls.Add(this.btnSelectIcon);
-            this.Controls.Add(this.dgvFiles);
-            this.Controls.Add(this.btnCompile);
-            this.Controls.Add(this.btnAddFile);
-            this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "File Binder";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFiles)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(19, 20, 21);
+            ClientSize = new Size(1084, 561);
+            Controls.Add(pbxIcon);
+            Controls.Add(btnSelectIcon);
+            Controls.Add(dgvFiles);
+            Controls.Add(btnCompile);
+            Controls.Add(btnAddFile);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "Main";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "File Binder";
+            Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvFiles).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbxIcon).EndInit();
+            ResumeLayout(false);
 
         }
 
