@@ -16,5 +16,5 @@ The core binding logic is separated into a reusable library, with a demo applica
 - Allows assigning a **custom icon** to the generated executable.
 </br>
 
-# Medias
+# Media
 ![Screenshot 1](Introduction%20Media/Screenshot%201.png)
