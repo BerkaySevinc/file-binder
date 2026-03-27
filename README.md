@@ -14,6 +14,7 @@ The core binding logic is separated into a reusable library, with a demo applica
 - Allows selecting which files will be executed when the generated executable runs.
 - Supports launching selected files with **administrator privileges**.
 - Allows assigning a **custom icon** to the generated executable.
+- Requires the **`System.CodeDom`** NuGet package for runtime C# compilation.
 </br>
 
 # Media
