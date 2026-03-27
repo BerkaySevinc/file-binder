@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 
 
-// tüm hepsinin byteını alıp öyle yapıyor, out of memorye sebep verebilir, bufferlar halinde oku ve yaz
+// PERF: Reads all file bytes into memory at once, which may cause OutOfMemoryException for large files. Consider reading and writing in chunks using buffered streams.
 
 
 namespace FileBinding;
