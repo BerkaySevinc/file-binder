@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 // tüm hepsinin byteını alıp öyle yapıyor, out of memorye sebep verebilir, bufferlar halinde oku ve yaz
 
 
-namespace BekoS.IO.FileBinding;
+namespace FileBinding;
 
 public class Binder
 {
